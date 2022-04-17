@@ -1,5 +1,5 @@
-import StyledBookmark from "./Bookmark.styled"
+import { StyledBookmark } from "./Bookmark.styled.js";
 
 export default function Bookmark() {
-    return <StyledBookmark/>
+  return <StyledBookmark />;
 }
