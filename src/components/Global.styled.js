@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import backgroundSVG from "../img/ContourLineRo.svg";
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -17,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --main-bg-color: #21445b;
     --main-text-color: #e5f2c9;
+    --text-color-dark: #0e2a47;
     --items-bg-color: #1a656699;
     --header-footer-color: #1a6566;
     --items-text-color: white;
@@ -31,8 +33,7 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
-  
+      
     min-height: 100vh;
     max-width: 100vw;
   
@@ -40,17 +41,16 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Roboto, sans-serif;
     letter-spacing: 0.2rem;
     font-weight: 400;
-    _text-align: center;
-  
+      
     color: var(--main-text-color);
-    background: url('../../resources/img/ContourLineRo.svg') no-repeat;
+    background: url(${backgroundSVG}) no-repeat;
     background-size: cover;
   }
   
   .main {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     gap: 5rem;
   

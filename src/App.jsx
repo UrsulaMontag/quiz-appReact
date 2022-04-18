@@ -2,6 +2,8 @@ import { nanoid } from "nanoid";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import CreateForm from "./components/CreateForm";
+import Profile from "./components/Profile";
+import { StyledFooter } from "./components/Footer.styled";
 import { useEffect, useState } from "react";
 //import styled from "styled-components";
 import fetchData from "./lib/fetchData";
@@ -17,6 +19,7 @@ export default function App() {
     });
   }, []);
 
+  //dieser Teil ist noch völliger nonsens...
   const createQuestion = ({
     questionInputValue,
     answerInputValue,
@@ -64,8 +67,10 @@ export default function App() {
       <section className="main" id="createForm">
         <CreateForm createQuestion={createQuestion} />
       </section>
-      <section className="main" id="profile"></section>
-      <footer></footer>
+      <section className="main" id="profile">
+        <Profile />
+      </section>
+      <StyledFooter />
     </div>
   );
 }

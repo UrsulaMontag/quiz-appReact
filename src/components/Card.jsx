@@ -1,6 +1,7 @@
-import { StyledBookmark } from "./Bookmark.styled";
+import { StyledBookmark } from "./Bookmark.styled.js";
 import { StyledCard } from "./Card.styled";
 import Button from "./Button";
+import { useState } from "react";
 
 export default function Card({
   category,
@@ -12,9 +13,15 @@ export default function Card({
   state,
   stateFunc,
 }) {
+  const [isBookmarked, setIsBookmarked] = useState("false");
+
   return (
     <StyledCard>
-      <StyledBookmark />
+      <StyledBookmark
+        onClick={() => {
+          setIsBookmarked(!isBookmarked);
+        }}
+      />
       <h2>Question</h2>
       <p>{question}</p>
       <form action="">

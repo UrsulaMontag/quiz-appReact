@@ -7,7 +7,9 @@ export const StyledBookmark = styled.div`
 
   width: 0;
   height: 4rem;
-  border: 1.2rem solid var(--header-footer-color);
+  border: 1.2rem solid
+    ${(props) =>
+      props.isBookmarked ? "hotpink" : "var(--header-footer-color)"};
   border-top: 0;
   border-bottom: 1.5rem solid transparent;
   border-radius: 0.2rem;
