@@ -1,7 +1,6 @@
 import { StyledBookmark } from "./Bookmark.styled";
 import { StyledCard } from "./Card.styled";
 import Button from "./Button";
-import { useState } from "react";
 
 export default function Card({
   category,
@@ -10,9 +9,9 @@ export default function Card({
   question,
   answer,
   incorrAnswers,
+  state,
+  stateFunc,
 }) {
-  const [checked, setChecked] = useState(false);
-
   return (
     <StyledCard>
       <StyledBookmark />
@@ -26,10 +25,10 @@ export default function Card({
       <Button
         type="button"
         className="Button__answerButton"
-        state={checked}
-        stateFunc={setChecked}
+        state={state}
+        stateFunc={stateFunc}
       />
-      {checked ? <p>{answer}</p> : null}{" "}
+      {state ? <p>{answer}</p> : null}{" "}
       <ul>
         <li>{category.split(":")[1]}</li>
         <li>{type}</li>
