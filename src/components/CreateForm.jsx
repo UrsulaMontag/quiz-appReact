@@ -5,19 +5,10 @@ export default function CreateForm({ createQuestion }) {
   const [questionInputValue, setQuestionInputValue] = useState("");
   const [answerInputValue, setAnswerInputValue] = useState("");
   const [tagInputValue, setTagInputValue] = useState("");
-  const [choiceInputValue, setChoiceInputValue] = useState("");
+
   function handleSubmit(event) {
     event.preventDefault();
-    createQuestion(
-      questionInputValue,
-      answerInputValue,
-      tagInputValue
-      //   choiceInputValue
-      //     .split(",")
-      //     .map((tag) => tag.trim())
-      //     .filter((tag) => tag.length)
-    );
-
+    createQuestion(questionInputValue, answerInputValue, tagInputValue);
     event.target.reset();
   }
   return (
@@ -27,6 +18,7 @@ export default function CreateForm({ createQuestion }) {
       <input
         id="question"
         type="text"
+        value={questionInputValue}
         placeholder="Enter any question"
         onChange={(event) => setQuestionInputValue(event.target.value)}
       />
@@ -34,6 +26,7 @@ export default function CreateForm({ createQuestion }) {
       <input
         id="answer"
         type="text"
+        value={answerInputValue}
         placeholder="Please enter the correct answer for your question"
         onChange={(event) => setAnswerInputValue(event.target.value)}
       />
@@ -41,6 +34,7 @@ export default function CreateForm({ createQuestion }) {
       <input
         id="tags"
         type="text"
+        value={tagInputValue}
         placeholder="Please enter category, type, difficulty separated by comma"
         onChange={(event) =>
           setTagInputValue(
@@ -51,20 +45,7 @@ export default function CreateForm({ createQuestion }) {
           )
         }
       />
-      <label htmlFor="choice">Optional Multiple Choice Tags: </label>
-      <input
-        id="choice"
-        type="text"
-        placeholder="Please enter upto 3 incorrect answers to create multiple choice. Separatet by comma"
-        onChange={(event) =>
-          setChoiceInputValue(
-            event.target.value
-              .split(",")
-              .map((tag) => tag.trim())
-              .filter((tag) => tag.length)
-          )
-        }
-      />
+
       <button>Submit</button>
     </StyledCreateForm>
   );

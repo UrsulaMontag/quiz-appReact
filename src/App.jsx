@@ -7,6 +7,7 @@ import { StyledFooter } from "./components/Footer.styled";
 import { useEffect, useState } from "react";
 //import styled from "styled-components";
 import fetchData from "./lib/fetchData";
+import create from "zustand";
 
 export default function App() {
   const urlApi = "https://opentdb.com/api.php?amount=10&category=18";
@@ -26,21 +27,19 @@ export default function App() {
     tagInputValue,
     choiceInputValue,
   }) => {
-    setQuestions(
-      questions.map((question) => {
-        return [
-          ...questions,
-          {
-            question: questionInputValue,
-            answer: answerInputValue,
-            category: tagInputValue[0],
-            type: tagInputValue[1],
-            difficulty: tagInputValue[2],
-            incorrect_answers: choiceInputValue,
-          },
-        ];
-      })
-    );
+    setQuestions((questions) => {
+      return [
+        ...questions,
+        {
+          question: questionInputValue,
+          answer: answerInputValue,
+          category: tagInputValue[0],
+          type: tagInputValue[1],
+          difficulty: tagInputValue[2],
+          incorrect_answers: choiceInputValue,
+        },
+      ];
+    });
   };
 
   return (
