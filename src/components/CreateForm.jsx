@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { StyledCreateForm } from "./CreateForm.styled";
+import useStore from "./useStore";
 
-export default function CreateForm({ createQuestion }) {
+export default function CreateForm() {
   const [questionInputValue, setQuestionInputValue] = useState("");
   const [answerInputValue, setAnswerInputValue] = useState("");
-  const [tagInputValue, setTagInputValue] = useState("");
+  const [tagInputValue, setTagInputValue] = useState([]);
+
+  const createQuestion = useStore((state) => state.addQuestion);
 
   function handleSubmit(event) {
     event.preventDefault();
