@@ -5,17 +5,15 @@ import { useState } from "react";
 import useStore from "./useStore.js";
 
 export default function Card() {
-  const [isBookmarked, setIsBookmarked] = useState("false");
-  const checked = useStore((state) => state.checked);
   const questions = useStore((state) => state.questions);
+  const [isChecked, setIsChecked] = useState(false);
 
+  const toggleCheck = () => {
+    setIsChecked(!isChecked);
+  };
   return (
     <StyledCard>
-      <StyledBookmark
-        onClick={() => {
-          setIsBookmarked(!isBookmarked);
-        }}
-      />
+      <StyledBookmark />
       <h2>Question</h2>
       <p>{questions.question}</p>
       <form action="">
@@ -23,8 +21,13 @@ export default function Card() {
           <legend></legend>
         </fieldset>
       </form>
-      <Button type="button" className="Button__answerButton" />
-      {checked ? <p>{questions.correct_answer}</p> : null}{" "}
+      <Button
+        type="button"
+        className="Button__answerButton"
+        toggleCheck={toggleCheck}
+        isChecked={isChecked}
+      />
+      {isChecked ? <p>{questions.correct_answer}</p> : null}{" "}
       <ul>
         <li>{questions.category}</li>
         <li>{questions.type}</li>

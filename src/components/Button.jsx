@@ -1,24 +1,27 @@
-import useStore from "./useStore";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
-export default function Button({ className }) {
-  const checked = useStore((state) => state.checked);
-  const toggleAnswer = useStore((state) => state.toggleChecked);
+export default function Button({ className, toggleCheck, isChecked }) {
   return (
     <>
       <button
         onClick={() => {
-          toggleAnswer();
+          toggleCheck();
         }}
       >
         {className === "Button__answerButton"
-          ? checked
+          ? isChecked
             ? "hide answer"
             : "show answer"
-          : className === "Button__logout" && checked
+          : className === "Button__logout" && isChecked
           ? "logout"
           : "login"}
       </button>
     </>
   );
 }
+
+Button.propType = {
+  className: PropTypes.string,
+  toggleCheck: PropTypes.func,
+  isChecked: PropTypes.bool,
+};

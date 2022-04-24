@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "./Card";
 
 export default {
@@ -17,13 +16,12 @@ export default {
 
 const props = {
   question: "Meine Frage",
-  answer: "Meine Antwort",
-  category,
+  correct_answer: "Meine Antwort",
+  category: "Meine Kategorie",
   type: "boolean",
-  difficulty,
-  incorrAnswers: [one, two, three],
-  state,
-  stateFunc,
+  difficulty: "easy",
+  incorrAnswers: ["one", "two", "three"],
+  state: true,
 };
 
 export const Default = () => <Card {...props} />;

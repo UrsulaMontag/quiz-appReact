@@ -1,4 +1,4 @@
-import { useState } from "react";
+//import { useState } from "react";
 import { StyledProfile } from "./Profile.styled";
 import profilePic from "../img/danie-franco-l9I93gZKTG4-unsplash_square.jpg";
 

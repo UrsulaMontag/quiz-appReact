@@ -18,13 +18,7 @@ const useStore = create(
         isBookmarked: false,
       },
     ],
-    checked: false,
-    // toggleBookmark: (index) =>
-    //   set(
-    //     produce((draft) => {
-    //       draft[index].isBookmarked = !draft[index].isBookmarked;
-    //     })
-    //   ),
+
     addQuestion: (question, correct_answer, tags = []) =>
       set(
         produce((draft) => {
@@ -38,12 +32,22 @@ const useStore = create(
           });
         })
       ),
-    toggleChecked: () => set((state) => (state.checked = !state.checked)),
+    fetchQuestions: async (url) => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        set({ questions: data.results });
+      } catch (error) {
+        console.error(`Upps das war ein Fehler: ${error}`);
+      }
+    },
+
+    //fetchedData: { results: [] },
   }))
 );
 export default useStore;
 
-useStore.prototype = {
+useStore.propType = {
   question: PropTypes.string,
   correct_answer: PropTypes.string,
   type: PropTypes.string,
