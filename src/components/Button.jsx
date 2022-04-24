@@ -1,22 +1,21 @@
-export default function Button({ state, stateFunc, className }) {
-  //   const labeling = () => {
-  //     if (className === "Button__answerButton") {
-  //       state ? "hide answer" : "show answer";
-  //     }
-  //   };
+import useStore from "./useStore";
 
+// eslint-disable-next-line react/prop-types
+export default function Button({ className }) {
+  const checked = useStore((state) => state.checked);
+  const toggleAnswer = useStore((state) => state.toggleChecked);
   return (
     <>
       <button
         onClick={() => {
-          stateFunc(!state);
+          toggleAnswer();
         }}
       >
         {className === "Button__answerButton"
-          ? state
+          ? checked
             ? "hide answer"
             : "show answer"
-          : className === "Button__logout" && state
+          : className === "Button__logout" && checked
           ? "logout"
           : "login"}
       </button>
