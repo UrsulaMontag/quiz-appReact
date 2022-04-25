@@ -11,6 +11,7 @@ export default function CreateForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log(questionInputValue, answerInputValue, tagInputValue);
     createQuestion(questionInputValue, answerInputValue, tagInputValue);
     event.target.reset();
   }

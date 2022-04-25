@@ -6,9 +6,8 @@ import PropTypes from "prop-types";
 
 export default function CardList() {
   const questions = useStore((state) => state.questions);
-
-  const urlApi = "https://opentdb.com/api.php?amount=10&category=18";
   const fetchData = useStore((state) => state.fetchQuestions);
+  const urlApi = "https://opentdb.com/api.php?amount=10&category=18";
 
   useEffect(() => {
     fetchData(urlApi);
@@ -16,11 +15,13 @@ export default function CardList() {
 
   return (
     <ul>
-      {questions.map((question) => {
-        const index = questions.findIndex(
-          (question_) => question_.id === question.id
+      {questions.map((question, index) => {
+        !question.id && (question.id = nanoid());
+        return (
+          <li key={question.id}>
+            <Card index={index} />
+          </li>
         );
-        return <Card key={nanoid()} index={index} />;
       })}
     </ul>
   );

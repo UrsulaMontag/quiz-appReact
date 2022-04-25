@@ -6,23 +6,12 @@ import PropTypes from "prop-types";
 
 const useStore = create(
   persist((set) => ({
-    questions: [
-      {
-        id: nanoid(),
-        question: "",
-        correct_answer: "",
-        type: "",
-        difficulty: "",
-        category: "",
-        incorrect_answers: [],
-        isBookmarked: false,
-      },
-    ],
+    questions: [],
 
     addQuestion: (question, correct_answer, tags = []) =>
       set(
         produce((draft) => {
-          draft.push({
+          draft.questions.push({
             id: nanoid(),
             question,
             correct_answer,
