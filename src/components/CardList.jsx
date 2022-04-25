@@ -17,6 +17,7 @@ export default function CardList() {
     <ul>
       {questions.map((question, index) => {
         !question.id && (question.id = nanoid());
+        //const index = questions.filter(({ id }) => id === question.id);
         return (
           <li key={question.id}>
             <Card index={index} />
@@ -26,6 +27,6 @@ export default function CardList() {
     </ul>
   );
 }
-CardList.propType = {
+CardList.propTypes = {
   questions: PropTypes.array,
 };

@@ -5,10 +5,13 @@ export default function Bookmark() {
   const [isBookmarked, setIsBookmarked] = useState("false");
 
   return (
-    <StyledBookmark
+    <button
       onClick={() => {
         setIsBookmarked(!isBookmarked);
+        console.log("hallo");
       }}
-    />
+    >
+      <StyledBookmark />
+    </button>
   );
 }

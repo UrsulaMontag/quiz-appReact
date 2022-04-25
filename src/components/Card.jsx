@@ -3,6 +3,7 @@ import { StyledCard } from "./Card.styled";
 import Button from "./Button";
 import { useState } from "react";
 import useStore from "./useStore.js";
+import PropTypes from "prop-types";
 
 export default function Card({ index }) {
   const questions = useStore((state) => state.questions);
@@ -17,11 +18,6 @@ export default function Card({ index }) {
       <StyledBookmark />
       <h2>Question</h2>
       <p>{questions[index].question}</p>
-      <form action="">
-        <fieldset>
-          <legend></legend>
-        </fieldset>
-      </form>
       <Button
         type="button"
         className="Button__answerButton"
@@ -37,3 +33,7 @@ export default function Card({ index }) {
     </StyledCard>
   );
 }
+
+Card.propTypes = {
+  index: PropTypes.number,
+};

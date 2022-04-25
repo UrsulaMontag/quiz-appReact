@@ -15,13 +15,12 @@ export default {
 };
 
 const props = {
+  index: 1,
   question: "Meine Frage",
   correct_answer: "Meine Antwort",
   category: "Meine Kategorie",
   type: "boolean",
   difficulty: "easy",
-  incorrAnswers: ["one", "two", "three"],
-  state: true,
 };
 
 export const Default = () => <Card {...props} />;

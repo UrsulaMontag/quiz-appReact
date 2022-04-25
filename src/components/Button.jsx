@@ -20,7 +20,7 @@ export default function Button({ className, toggleCheck, isChecked }) {
   );
 }
 
-Button.propType = {
+Button.propTypes = {
   className: PropTypes.string,
   toggleCheck: PropTypes.func,
   isChecked: PropTypes.bool,

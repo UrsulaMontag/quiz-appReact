@@ -30,13 +30,11 @@ const useStore = create(
         console.error(`Upps das war ein Fehler: ${error}`);
       }
     },
-
-    //fetchedData: { results: [] },
   }))
 );
 export default useStore;
 
-useStore.propType = {
+useStore.propTypes = {
   question: PropTypes.string,
   correct_answer: PropTypes.string,
   type: PropTypes.string,
